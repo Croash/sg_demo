@@ -1,13 +1,14 @@
-import React, { render, h, useState } from 'fre_sg'
+import React, { render, h, useState, useRef, useEffect } from 'fre_sg'
+import Md from './components/md'
 
-const SubApp = () => {
-  const [num, add] = useState(0)
-  return <div><button onClick={() => { add(num+1) }} >{num}</button></div>
-}
-
-const App = () => <div>
-  hello fre_sg
-  <SubApp />
-</div>
+const App = () => {
+  const mdR = useRef()
+  useEffect(() => {
+    console.log('effect')
+  }, [])
+  return <div>
+    hello fre_sg
+    <Md useRef={mdR} />
+</div>}
 
 render(<App />, document.getElementById('app'))
